@@ -420,6 +420,8 @@ else()
 	add_subdirectory(ext/snappy)
 endif()
 
+add_subdirectory(ext/soundtouch)
+
 add_subdirectory(ext/udis86)
 
 add_library(vjson STATIC
@@ -1032,7 +1034,7 @@ if (LINUX AND NOT ANDROID)
 	SET(RT_LIB rt)
 endif()
 
-target_link_libraries(native ${LIBZIP_LIBRARY} ${ZLIB_LIBRARY} ${PNG_LIBRARY} rg_etc1 vjson snappy udis86 ${RT_LIB} ${GLEW_LIBRARIES})
+target_link_libraries(native ${LIBZIP_LIBRARY} ${ZLIB_LIBRARY} ${PNG_LIBRARY} rg_etc1 vjson snappy udis86 SoundTouch ${RT_LIB} ${GLEW_LIBRARIES})
 
 if(ANDROID)
 	target_link_libraries(native log EGL)
