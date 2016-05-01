@@ -1360,6 +1360,7 @@ add_library(${CoreLibName} ${CoreLinkType}
 	Core/HW/SimpleAudioDec.h
 	Core/HW/AsyncIOManager.cpp
 	Core/HW/AsyncIOManager.h
+	Core/HW/AsyncAudioQueue.h
 	Core/HW/MediaEngine.cpp
 	Core/HW/MediaEngine.h
 	Core/HW/MpegDemux.cpp
@@ -1372,6 +1373,8 @@ add_library(${CoreLibName} ${CoreLinkType}
 	Core/HW/SasReverb.h
 	Core/HW/StereoResampler.cpp
 	Core/HW/StereoResampler.h
+	Core/HW/StereoStretcher.cpp
+	Core/HW/StereoStretcher.h
 	Core/Host.cpp
 	Core/Host.h
 	Core/Loaders.cpp
