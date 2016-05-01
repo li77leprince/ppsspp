@@ -26,7 +26,7 @@
 #include "Common/ChunkFile.h"
 #include "Common/CommonTypes.h"
 
-struct AudioDebugStats;
+#include "Core/HW/AsyncAudioQueue.h"
 
 // 16 bit Stereo
 
@@ -38,27 +38,24 @@ struct AudioDebugStats;
 #define CONTROL_FACTOR  0.2f // in freq_shift per fifo size offset
 #define CONTROL_AVG     32
 
-class StereoResampler {
-
+class StereoResampler : public AsyncAudioQueue {
 public:
 	StereoResampler();
 
-	virtual ~StereoResampler() {}
-
 	// Called from audio threads
-	virtual unsigned int Mix(short* samples, unsigned int numSamples, bool consider_framelimit, int sampleRate);
+	unsigned int Mix(short* samples, unsigned int numSamples, bool consider_framelimit, int sampleRate) override;
 
 	// Called from main thread
 	// This clamps the samples to 16-bit before starting to work on them.
-	virtual void PushSamples(const s32* samples, unsigned int num_samples);
+	void PushSamples(const s32* samples, unsigned int num_samples) override;
 
-	void Clear() {
+	void Clear() override {
 		m_dma_mixer.Clear();
 	}
 
-	void DoState(PointerWrap &p);
+	void DoState(PointerWrap &p) override;
 
-	void GetAudioDebugStats(AudioDebugStats *stats);
+	void GetAudioDebugStats(AudioDebugStats *stats) override;
 
 protected:
 	// TODO: Unlike Dolphin we only mix one stream so this inner class can be merged into the outer one.
