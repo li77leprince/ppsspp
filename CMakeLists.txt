@@ -1445,6 +1445,8 @@ add_library(${CoreLibName} ${CoreLinkType}
 	Core/Util/PPGeDraw.h
 	Core/Util/ppge_atlas.cpp
 	Core/Util/ppge_atlas.h
+	Core/Util/TimeStretcher.cpp
+	Core/Util/TimeStretcher.h
 	${CORE_NEON}
 	$<TARGET_OBJECTS:GPU>
 	Globals.h

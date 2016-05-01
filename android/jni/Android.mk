@@ -370,6 +370,7 @@ EXEC_AND_LIB_FILES := \
   $(SRC)/Core/Util/AudioFormat.cpp \
   $(SRC)/Core/Util/GameManager.cpp \
   $(SRC)/Core/Util/BlockAllocator.cpp \
+  $(SRC)/Core/Util/TimeStretcher.cpp \
   $(SRC)/Core/Util/ppge_atlas.cpp \
   $(SRC)/Core/Util/PPGeDraw.cpp \
   $(SRC)/git-version.cpp
